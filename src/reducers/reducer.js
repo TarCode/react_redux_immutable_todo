@@ -3,7 +3,6 @@ import { List, Map } from 'immutable'
 const init = List([])
 let nextId = 0
 export default function(state = init, action) {
-  console.log('action from reducer', action);
   switch (action.type) {
     case 'ADD_TODO':
       nextId++
@@ -23,8 +22,6 @@ export default function(state = init, action) {
       })
     case 'DELETE_TODO':
       var newArr = state.filter(t => {
-        console.log(t)
-        console.log(action.data);
         if (t.get('id') !== action.data) {
           return t
         }
